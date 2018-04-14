@@ -30,12 +30,15 @@ Run the run.sh script to populate the variables and execute this code.
 
 """
 
+
+# Credentials to log into switch
 mgmt_ip = os.environ['IPADDR']
 username = os.environ['USR']
 password = os.environ['USRPWD']
 
 
 def connect():
+
     print "\n"
     print "------ START OF SCRIPT ------\n"
 
@@ -58,6 +61,7 @@ def connect():
 
 
 def get_name(net_connect):
+
     net_connect.find_prompt()
 
     # Get hostname of device
@@ -68,6 +72,7 @@ def get_name(net_connect):
 
 
 def get_vty(net_connect):
+
     net_connect.find_prompt()
 
     print "------------------------\n"
@@ -133,6 +138,7 @@ def parse_regex(running_cfg, hostname):
 
 
 def check_http(net_connect):
+
     net_connect.find_prompt()
     show_http = net_connect.send_command("show run | include http server")
 
@@ -149,6 +155,7 @@ def check_http(net_connect):
 
 
 def disconnect(net_connect):
+
     print "\n .... DISCONNECT FROM SWITCH \n"
     net_connect.disconnect()
 
