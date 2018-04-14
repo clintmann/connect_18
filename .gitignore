@@ -143,3 +143,7 @@ ENV/
 # mkdocs documentation
 
 # mypy
+/getmobilenums.py
+/postsparkrm.py
+/S2_audit_post.py
+/sendtext.py
