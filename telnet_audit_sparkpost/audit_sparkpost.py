@@ -120,11 +120,9 @@ def parse_regex(running_cfg, hostname):
         alert.append("\n** ALERT : DEVICE : %s has TELNET configured on %s \n" % (hostname, vty[0]))
         print "\n** ALERT : DEVICE : %s has TELNET configured on %s \n" % (hostname, vty[0])
 
-
     if 'telnet' in modified_lst[2]:
         text = modified_lst[2]
         vty = re.findall(r'(vty.*)', text)
-        #transport = re.findall(r'(transport.*)', text)  # line starts with transport capture all up to line break
 
         print "\n"
         print " ANSWER TO OUR QUESTIONS - IS TELNET CONFIGURED - IF SO, WHERE ? "
