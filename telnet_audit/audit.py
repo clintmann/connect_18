@@ -2,7 +2,9 @@ from netmiko import ConnectHandler
 import os
 import re
 
-""" This is script for Demo #4
+""" FOR DEMO PURPOSES ONLY
+
+This is script for Demo #4
 
 SESSION: Network Programmability for the CLI Jockey
 
