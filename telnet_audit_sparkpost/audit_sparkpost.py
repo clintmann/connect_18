@@ -5,7 +5,9 @@ import re
 from postsparkrm import post_message
 
 
-""" This is script for Demo #5
+""" FOR DEMO PURPOSES ONLY
+
+This is script for Demo #5
 
 SESSION: Network Programmability for the CLI Jockey
 
