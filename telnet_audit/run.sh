@@ -4,7 +4,7 @@ echo
 echo "################################################"
 echo "Thank you for using the Network Audit Script    "
 echo "--"
-echo "This script will execute the script audit.py "
+echo "This script will execute  audit.py              "
 echo "--"
 echo "It will display results to the screen           "
 echo
