@@ -117,8 +117,7 @@ def parse_regex(running_cfg, hostname):
         print "------------------------\n"
         alert.append("\n** ALERT : DEVICE : %s has TELNET configured on %s \n" % (hostname, vty[0]))
         print "\n** ALERT : DEVICE : %s has TELNET configured on %s \n" % (hostname, vty[0])
-    #else:
-    #    text = modified_lst[1]
+
 
     if 'telnet' in modified_lst[2]:
         text = modified_lst[2]
@@ -130,8 +129,6 @@ def parse_regex(running_cfg, hostname):
         print "------------------------\n"
         alert.append("\n** ALERT : DEVICE : %s has TELNET configured on %s \n" % (hostname, vty[0]))
         print "\n** ALERT : DEVICE : %s has TELNET configured on %s \n" % (hostname, vty[0])
-    #else:
-    #    text = modified_lst[2]
 
     a_join = (", ".join(alert))
 
