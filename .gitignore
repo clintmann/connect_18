@@ -147,3 +147,10 @@ ENV/
 /postsparkrm.py
 /S2_audit_post.py
 /sendtext.py
+/connect18_scripts/
+/connect18_scripts/postsparkrm.py
+/connect18_scripts/run.sh
+/connect18_scripts/sendtext.py
+/connect18_scripts/S2_audit_post.py
+/connect18_scripts/audit.py
+/connect18_scripts/getmobilenums.py
