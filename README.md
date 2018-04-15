@@ -17,10 +17,17 @@ All scripts are intended for demonstration purposes only.
 
 If you attended one of the sessions. 
 
-demo 4
+- Demo 4 : Audit switch - is TELNET enabled
 
-demo 5
 
-demo 7
+- Demo 5 : Audit switch - is TELNET enabled - post to Spark Room
 
-demo 6 can be found here 
+
+- Demo 6 : OnBox Assistant can be found here
+
+    https://github.com/clintmann/onbox_assistant
+
+
+- Demo 7 : Audit switch - is TELNET enabled - POSTMAN 
+
+
