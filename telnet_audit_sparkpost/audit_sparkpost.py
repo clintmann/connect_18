@@ -29,7 +29,8 @@ Lastly we will post findings to a Spark Room.
 This script contains an over abundance of comments for demo purposes. 
 
 It is not necessarily meant to be fast or efficient - but rather the purpose is to demonstrate
-how a Network Engineer, who is new to programming might determine if Telnet is enabled on a switch. 
+how a Network Engineer, who is new to programming might determine if Telnet is enabled on a switch and 
+post the result to a Spark room. 
 
 Run the run.sh script to populate the variables and execute this code.
 
