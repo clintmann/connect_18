@@ -13,21 +13,5 @@ what this new world of network programmabilty looks like and where they can star
 
 All scripts are intended for demonstration purposes only.
 
-## Now what do I do?
-
-If you attended one of the sessions. 
-
-- Demo 4 : Audit switch - is TELNET enabled
-
-
-- Demo 5 : Audit switch - is TELNET enabled - post to Spark Room
-
-
-- Demo 6 : OnBox Assistant can be found here
-
-    https://github.com/clintmann/onbox_assistant
-
-
-- Demo 7 : Audit switch - is TELNET enabled - POSTMAN 
 
 
