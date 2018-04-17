@@ -1,0 +1,42 @@
+event manager environment _email_to <emailaddress>
+event manager environment _email_from <emailaddress>
+event manager environment _email_server <emailaddress>
+event manager directory user policy "flash:/tcl"
+event manager applet config_change
+ event syslog pattern "SYS-5-CONFIG_I: Configured from console"
+ action a0000 puts "\nExecuting EEM Script to Check for Config Change Compliance"
+ action a0001 info type routername
+ action a0002 puts "\n$_info_routername - gathering system name for user later in script"
+ action a0003 regexp "console by ([A-Za-z0-9]+)" "$_syslog_msg" _username
+ action a0004 puts "$_username - parsing syslog message for username and putting the value into _username variable"
+ action a0005 set string "$_username"
+ action a0006 puts "Setting string to $_username value so the string can be modified"
+ action a0007 string trimleft "$string" "console "
+ action a0008 puts "Trimming console  from string"
+ action a0009 puts "$_string_result"
+ action a0010 string trimleft "$_string_result" "by "
+ action a0011 puts "Trimming by  from string"
+ action a0012 puts "$_string_result"
+ action a0013 set _cfg_by_user "$_string_result"
+ action a0014 puts "Setting _cfg_by_user variable with string result to be used later in script"
+ action a0015 puts "$_cfg_by_user"
+ action a0016 puts "Entering enable mode and issuing the show clock command.  Run regexp on output to parse for hour and set _clock variable"
+ action a0017 cli command "en"
+ action a0018 cli command "show clock"
+ action a0019 regexp "([0-9]+).:" "$_cli_result" _clock
+ action a0020 puts "$_clock"
+ action a0021 puts "Need to trim : from clock output"
+ action a0022 set string "$_clock"
+ action a0023 string trimright "$_clock" ":"
+ action a0024 puts "$_string_result - trimmed : from clock output string"
+ action a0025 if $_string_result ge "17"
+ action a0026  puts "Past 5:00PM - Generate E-mail"
+ action a0027  syslog msg "Device $_info_routername has been configured by $_cfg_by_user outside normal business hours" facility "1"
+ action a0028  mail server "$_email_server" to "$_email_to" from "$_email_from" subject "Device $_info_routername Configured Outside Normal Hours" body "Device $_info_routername configured by $_cfg_by_user outside normal hours" vrf Mgmt-vrf
+ action a0029 elseif $_string_result le 07
+ action a0030  puts "Before 8:00AM - Generate E-mail"
+ action a0031  syslog msg "Device $_info_routername has been configured by $_cfg_by_user outside normal business hours" facility "1"
+ action a0032  mail server "$_email_server" to "$_email_to" from "$_email_from" subject "Device $_info_routername Configured Outside Normal Hours" body "Device $_info_routername configured by $_cfg_by_user outside normal hours" vrf Mgmt-vrf
+ action a0033 else
+ action a0034  puts "Configured within Normal Window - No Alarm"
+ action a0035 end

@@ -1,0 +1,30 @@
+puts -nonewline "Would you like to reload the device after the cleanup? "
+flush stdout
+set input [gets stdin]
+ 
+puts "Erasing Configuration"
+typeahead "\r"
+puts [exec "erase startup-config"]
+puts "Erase VLAN Database"
+typeahead "\r\n\r"
+puts [exec "del flash:vlan.dat"]
+puts "Restoring Lab Base Configuration"
+typeahead "\r"
+puts [exec "copy flash:class-base.cfg startup-config"]
+puts "Restoring VLAN Database"
+typeahead "\r"
+puts [exec "copy flash:class-base.dat flash:vlan.dat"]
+puts "Configuring VTPv3"
+puts [ios_config "vtp domain python-class"]
+puts [ios_config "vtp version 3"]
+puts [ios_config "vtp password <pwd - here>"]
+puts [ios_config "vtp mode transparent"]
+ 
+if {[string match -nocase "yes" $input] || [string match -nocase "y" $input] == 1} {
+     puts "Reloading the Device - Please Wait"
+    typeahead "\r"
+    puts [exec "reload"]
+ 
+} else {
+     puts "Please reload the device at your leisure"
+}

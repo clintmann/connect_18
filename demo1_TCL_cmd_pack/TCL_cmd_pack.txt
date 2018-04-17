@@ -1,0 +1,23 @@
+puts "This tcl script will configure the port speed and duplex"
+ 
+puts -nonewline "Enter interface would you like to configure: "
+flush stdout
+set port [gets stdin]
+ 
+puts "Set $port variable with input from user"
+ 
+puts -nonewline "What speed should the interface be forced to: "
+flush stdout
+set speed [gets stdin]
+ 
+puts "Set $speed variable with input from user"
+ 
+puts -nonewline "What duplex should the interface be forced to - full or half: "
+flush stdout
+set duplex [gets stdin]
+ 
+puts "set $duplex variable with input from user"
+ 
+puts "Removing autonegotiation"
+ios_config "interface $port" "no negotiation auto" "speed $speed" "duplex $duplex"
+puts "Finished"
